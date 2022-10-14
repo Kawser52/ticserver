@@ -49,6 +49,13 @@ app.use('/api', serviceRoutes)
 app.use('/api', storyRoutes)
 
 
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
+
 app.get("/api", (rq, res)=>{
     res.send("TIC Limited Servcer")
 })
