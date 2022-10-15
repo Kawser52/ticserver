@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const app = express()
-const port = process.env.port || 5000
+const port = process.env.PORT || 5000
 require('dotenv').config()
 
 
@@ -21,7 +21,6 @@ const serviceRoutes = require('./routes/serviceRoutes')
 const storyRoutes = require('./routes/storyRoutes')
 // db connection 
 
-const uri = "";
 
 mongoose.connect(process.env.DABASE_MONGO_URI,{
     useNewUrlParser:true,
@@ -60,6 +59,4 @@ app.get("/api", (rq, res)=>{
     res.send("TIC Limited Servcer")
 })
 
-app.listen(port, ()=>{
-    console.log(`Server is Running on the port of.${port}`)
-})
+app.listen()
